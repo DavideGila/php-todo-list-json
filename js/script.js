@@ -12,7 +12,7 @@ createApp({
     methods: {
         readList(){
             axios.get(this.apiUrl).then((response) =>{
-                console.log(response);
+                // console.log(response);
                 this.toDoList = response.data;
             })
         },
@@ -20,18 +20,19 @@ createApp({
             this.tasks.splice(index,1)
         },
         addNewTask(){
-            this.newIds++;
-            const newTask = {
-                id: this.newIds,
-                text: this.newText,
-                done: false
+            if (this.newText === ''){
+                return
             }
-            this.tasks.push(newTask);
-            this.newText = '';
+            const data = new FormData()
+            data.append("task", this.newText)
+            axios.post(this.apiUrl, data).then((response) =>{
+            // console.log(response);
+            this.toDoList = response.data;
+            })
         },
-        revertDone(index){
-            this.tasks[index].done = !this.tasks[index].done
-        },
+        // revertDone(index){
+        //     this.tasks[index].done = !this.tasks[index].done
+        // },
     },
     mounted() {
         this.readList()
