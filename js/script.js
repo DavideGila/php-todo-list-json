@@ -16,9 +16,6 @@ createApp({
                 this.toDoList = response.data;
             })
         },
-        tasksRemove(index){
-            this.tasks.splice(index,1)
-        },
         addNewTask(){
             if (this.newText === ''){
                 return
@@ -30,9 +27,6 @@ createApp({
             this.toDoList = response.data;
             })
         },
-        // revertDone(index){
-        //     this.tasks[index].done = !this.tasks[index].done
-        // },
     },
     mounted() {
         this.readList()
