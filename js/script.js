@@ -3,28 +3,19 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
-            tasks: [
-                {
-                    id: 1,
-                    text: 'Mission 1',
-                    done: false
-                },
-                {
-                    id: 2,
-                    text: 'Mission 2',
-                    done: true
-                },
-                {
-                    id: 3,
-                    text: 'Mission 3',
-                    done: false
-                }
-            ],
+            apiUrl:'server.php',
+            toDoList: [],
             newIds: 3,
             newText: ''
         }
     },
     methods: {
+        readList(){
+            axios.get(this.apiUrl).then((response) =>{
+                console.log(response);
+                this.toDoList = response.data;
+            })
+        },
         tasksRemove(index){
             this.tasks.splice(index,1)
         },
@@ -42,4 +33,7 @@ createApp({
             this.tasks[index].done = !this.tasks[index].done
         },
     },
+    mounted() {
+        this.readList()
+    }
 }).mount('#app');
