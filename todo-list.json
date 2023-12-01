@@ -1,17 +1,1 @@
-[
-    {
-        "id": 1,
-        "text": "Mission 1",
-        "done": false
-    },
-    {
-        "id": 2,
-        "text": "Mission 2",
-        "done": true
-    },
-    {
-        "id": 3,
-        "text": "Mission 3",
-        "done": false
-    }
-]
+[{"id":1,"text":"Mission 1","done":false},{"id":2,"text":"Mission 2","done":true},{"id":3,"text":"Mission 3","done":false}]
