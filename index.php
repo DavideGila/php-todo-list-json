@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/script.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <title>PHP ToDo List JSON</title>
 </head>
@@ -24,8 +25,8 @@
             </header>
             <main>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action d-flex justify-content-between" @click="revertDone(index)">
-                        <span></span>
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between" @click="revertDone(index)" v-for="task in toDoList">
+                        <span>{{ task.text }}</span>
                         <i class="fa-solid fa-trash" style="cursor: pointer" @click="tasksRemove(index)"></i>
                     </li>
                 </ul>
