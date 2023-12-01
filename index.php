@@ -18,14 +18,14 @@
             <header class="text-center">
                 <img src="img/metal_slug_logo_4_a.jpg" alt="Logo" />
                 <div class="my-3">
-                    <input type="text" class="form-control w-50 d-inline-block mx-3" v-model="newText" @keyup.enter="addNewTask(), playSound('audio/missionstart.mp3')" />
+                    <input type="text" class="form-control w-50 d-inline-block mx-3" v-model="newText" @keyup.enter="addNewTask()" />
                     <button class="btn btn-primary align-middle" @click="addNewTask()">Add Task</button>
                 </div>
             </header>
             <main>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action d-flex justify-content-between" v-for="(todos, index) in tasks" :key="todos.id" :class="{'done':todos.done}" @click="revertDone(index)">
-                        <span>{{todos.text}}</span>
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between" @click="revertDone(index)">
+                        <span></span>
                         <i class="fa-solid fa-trash" style="cursor: pointer" @click="tasksRemove(index)"></i>
                     </li>
                 </ul>
