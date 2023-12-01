@@ -25,9 +25,9 @@
             </header>
             <main>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action d-flex justify-content-between" @click="revertDone(index)" v-for="task in toDoList">
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between" v-for="task in toDoList">
                         <span>{{ task.text }}</span>
-                        <i class="fa-solid fa-trash" style="cursor: pointer" @click="tasksRemove(index)"></i>
+                        <i class="fa-solid fa-trash" style="cursor: pointer"></i>
                     </li>
                 </ul>
             </main>
